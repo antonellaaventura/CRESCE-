@@ -3,561 +3,290 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRESCE+ - O crédito que não é dívida, é semente</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Programa Sorte Cresce+ - Sistema de Fidelização</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        :root {
+            --primary: #2ECC71;
+            --secondary: #F39C12;
+            --accent: #3498DB;
+            --dark: #2C3E50;
+            --light: #f8f9fa;
         }
-        
         body {
-            background-color: #f8f9fa;
-            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-        }
-        
-        .container {
+            color: #333;
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+            background-color: #f5f5f5;
         }
-        
-        header {
-            background: linear-gradient(135deg, #2ECC71 0%, #27AE60 100%);
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-            border-radius: 0 0 20px 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        
-        .logo {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        
-        .logo-icon {
-            font-size: 42px;
-            margin-right: 15px;
-            color: #F39C12;
-        }
-        
-        h1 {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-        }
-        
-        .slogan {
-            font-size: 1.5rem;
-            font-weight: 300;
-            margin-bottom: 20px;
-        }
-        
-        section {
-            padding: 40px 20px;
-            margin: 30px 0;
+        .container {
             background: white;
             border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
         }
-        
-        h2 {
-            color: #2ECC71;
-            margin-bottom: 25px;
+        h1, h2, h3 {
+            color: var(--dark);
+        }
+        h1 {
             text-align: center;
-            font-size: 2.2rem;
-            position: relative;
-            padding-bottom: 10px;
+            color: var(--primary);
+            margin-bottom: 10px;
         }
-        
-        h2:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: #F39C12;
-            border-radius: 2px;
+        .subtitle {
+            text-align: center;
+            color: var(--secondary);
+            font-size: 1.2em;
+            margin-bottom: 30px;
         }
-        
-        h3 {
-            color: #3498DB;
-            margin: 20px 0 15px;
-            font-size: 1.6rem;
-        }
-        
-        .problem-grid, .solution-grid {
+        .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
+            gap: 20px;
+            margin: 30px 0;
         }
-        
-        .problem-card, .solution-card {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 12px;
-            text-align: center;
-            transition: transform 0.3s ease;
+        .card {
+            background: var(--light);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid var(--accent);
         }
-        
-        .problem-card:hover, .solution-card:hover {
-            transform: translateY(-5px);
+        .card h3 {
+            margin-top: 0;
+            color: var(--accent);
         }
-        
-        .problem-card i, .solution-card i {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: #E74C3C;
+        .highlight {
+            background-color: #FFF8E1;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid var(--secondary);
+            margin: 20px 0;
         }
-        
-        .solution-card i {
-            color: #2ECC71;
-        }
-        
-        .card-title {
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: #2C3E50;
-        }
-        
-        .two-columns {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-        
-        @media (max-width: 768px) {
-            .two-columns {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        .credit-line {
-            background: #E8F5E9;
-            padding: 25px;
-            border-radius: 12px;
-            border-left: 5px solid #2ECC71;
-        }
-        
-        .credit-line h3 {
-            color: #27AE60;
-            display: flex;
-            align-items: center;
-        }
-        
-        .credit-line h3 i {
-            margin-right: 10px;
-        }
-        
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 25px 0;
-            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            margin: 20px 0;
         }
-        
         th, td {
-            padding: 15px;
-            text-align: center;
+            padding: 12px 15px;
+            text-align: left;
             border-bottom: 1px solid #ddd;
         }
-        
         th {
-            background-color: #2ECC71;
+            background-color: var(--primary);
             color: white;
-            font-weight: 500;
         }
-        
-        tr:nth-child(even) {
-            background-color: #f8f9fa;
-        }
-        
         tr:hover {
-            background-color: #E8F5E9;
+            background-color: #f5f5f5;
         }
-        
-        .philosophy-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        
-        .philosophy-card {
-            text-align: center;
-            padding: 20px;
-            background: #f8f9fa;
+        .lottery-model {
+            background: linear-gradient(135deg, #E8F5E9 0%, #E3F2FD 100%);
+            padding: 25px;
             border-radius: 10px;
+            margin: 25px 0;
         }
-        
-        .philosophy-card i {
-            font-size: 2.5rem;
-            color: #3498DB;
-            margin-bottom: 15px;
-        }
-        
-        .impact-cycle {
+        .benefits {
             display: flex;
-            justify-content: center;
-            align-items: center;
             flex-wrap: wrap;
-            gap: 30px;
-            margin: 40px 0;
+            gap: 20px;
+            margin: 25px 0;
         }
-        
-        .cycle-step {
+        .benefit-item {
+            flex: 1;
+            min-width: 250px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        .benefit-icon {
+            font-size: 2.5em;
+            color: var(--secondary);
+            margin-bottom: 15px;
             text-align: center;
-            width: 180px;
-            position: relative;
         }
-        
-        .cycle-step i {
-            font-size: 2.5rem;
-            background: #3498DB;
+        .conclusion {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
             color: white;
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px;
-        }
-        
-        .cycle-step:not(:last-child):after {
-            content: '→';
-            position: absolute;
-            right: -30px;
-            top: 25px;
-            font-size: 2rem;
-            color: #3498DB;
-        }
-        
-        @media (max-width: 768px) {
-            .cycle-step:not(:last-child):after {
-                content: '↓';
-                right: 50%;
-                top: auto;
-                bottom: -30px;
-                transform: translateX(50%);
-            }
-            
-            .impact-cycle {
-                flex-direction: column;
-            }
-        }
-        
-        .cta {
+            padding: 30px;
+            border-radius: 10px;
             text-align: center;
-            background: linear-gradient(135deg, #3498DB 0%, #2C3E50 100%);
-            color: white;
-            padding: 50px 20px;
-            border-radius: 15px;
+            margin-top: 40px;
         }
-        
-        .cta h2 {
-            color: white;
-        }
-        
-        .cta h2:after {
-            background: #F39C12;
-        }
-        
-        .btn {
+        .cta-button {
             display: inline-block;
-            background: #F39C12;
+            background: var(--secondary);
             color: white;
-            padding: 15px 35px;
+            padding: 15px 30px;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
-            margin: 20px 10px;
-            transition: all 0.3s ease;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s;
         }
-        
-        .btn:hover {
+        .cta-button:hover {
             background: #E67E22;
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        footer {
-            text-align: center;
-            padding: 30px 0;
-            color: #7F8C8D;
-            font-size: 0.9rem;
-        }
-        
-        .contact-info {
-            margin-top: 20px;
-            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">
-                <i class="fas fa-seedling logo-icon"></i>
-                <h1>CRESCE+</h1>
-            </div>
-            <p class="slogan">O crédito que não é dívida, é semente.</p>
-            <p>"Plantando crédito, colhendo oportunidades."</p>
-        </div>
-    </header>
-
     <div class="container">
-        <section id="conceito">
-            <h2>Conceito</h2>
-            <p>O <strong>CRESCE+</strong> é uma plataforma de microcrédito comunitário e educativo (CaaS). Oferecemos <strong>acesso justo a capital semente</strong> para microempreendedores periféricos, transformando o crédito em uma ferramenta de <strong>autonomia e crescimento sustentável</strong>, não de endividamento.</p>
-        </section>
-
-        <section id="problema">
-            <h2>O Problema que Combatemos</h2>
-            <div class="problem-grid">
-                <div class="problem-card">
-                    <i class="fas fa-ban"></i>
-                    <div class="card-title">Exclusão Financeira</div>
-                    <p>O sistema tradicional nega crédito a quem mais precisa começar.</p>
-                </div>
-                <div class="problem-card">
-                    <i class="fas fa-exclamation-triangle"></i>
-                    <div class="card-title">Armadilha da Dívida</div>
-                    <p>As únicas alternativas são agiotas (juros absurdos) ou cartões de crédito (rotativos abusivos).</p>
-                </div>
-                <div class="problem-card">
-                    <i class="fas fa-lock"></i>
-                    <div class="card-title">Potencial Travado</div>
-                    <p>Milhares de talentos não se transformam em negócios por falta de um capital inicial mínimo.</p>
-                </div>
+        <h1>PROGRAMA SORTE CRESCE+</h1>
+        <p class="subtitle">Sistema visionário de fidelização através de sorteios mensais</p>
+        
+        <h2>Por que substituir os grupos de 5 por sorteios?</h2>
+        
+        <div class="grid">
+            <div class="card">
+                <h3>🎯 Maior Atração de Clientes</h3>
+                <p>O sistema de sorteios é mais atraente e menos intimidante do que a responsabilidade compartilhada dos grupos.</p>
             </div>
-        </section>
-
-        <section id="solucao">
-            <h2>Nossa Solução</h2>
-            <p>Duas linhas de crédito integradas para liberar o potencial de crescimento:</p>
-            
-            <div class="two-columns">
-                <div class="credit-line">
-                    <h3><i class="fas fa-bolt"></i> Linha Relâmpago</h3>
-                    <p><strong>Crédito Rápido</strong> para oportunidades imediatas</p>
-                    <ul>
-                        <li><strong>Até R$ 2.000</strong> para oportunidades imediatas</li>
-                        <li><strong>Prazo:</strong> até 20 dias</li>
-                        <li><strong>Juros fixos:</strong> 20% sobre o total</li>
-                        <li><strong>Pagamento único</strong> via Pix</li>
-                    </ul>
-                </div>
-                
-                <div class="credit-line">
-                    <h3><i class="fas fa-seedling"></i> Linha Cresce+</h3>
-                    <p><strong>Crescimento Planejado</strong> para seu negócio</p>
-                    <ul>
-                        <li><strong>Valores:</strong> R$ 200, R$ 400, R$ 600, R$ 800, R$ 1.000, R$ 1.500, R$ 2.000</li>
-                        <li><strong>Parcelamento:</strong> Escolha seu plano de até 4x</li>
-                        <li><strong>Juros Progressivos e Justos:</strong> 20% a 35%</li>
-                        <li><strong>+ Bônus:</strong> Oficina de Educação Financeira "Plantando seu Negócio" (2h online)</li>
-                    </ul>
-                </div>
+            <div class="card">
+                <h3>📈 Redução de Complexidade</h3>
+                <p>Elimina a necessidade de gerenciar dinâmicas de grupo e conflitos entre participantes.</p>
             </div>
-        </section>
-
-        <section id="valores">
-            <h2>Valores e Parcelas</h2>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Valor do Empréstimo</th>
-                            <th>1x (20%)</th>
-                            <th>2x (25%)</th>
-                            <th>3x (30%)</th>
-                            <th>4x (35%)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>R$ 200</strong></td>
-                            <td>R$ 240</td>
-                            <td>2x R$ 125</td>
-                            <td>3x R$ 86,67</td>
-                            <td>4x R$ 67,50</td>
-                        </tr>
-                        <tr>
-                            <td><strong>R$ 400</strong></td>
-                            <td>R$ 480</td>
-                            <td>2x R$ 250</td>
-                            <td>3x R$ 173,33</td>
-                            <td>4x R$ 135</td>
-                        </tr>
-                        <tr>
-                            <td><strong>R$ 600</strong></td>
-                            <td>R$ 720</td>
-                            <td>2x R$ 375</td>
-                            <td>3x R$ 260</td>
-                            <td>4x R$ 202,50</td>
-                        </tr>
-                        <tr>
-                            <td><strong>R$ 800</strong></td>
-                            <td>R$ 960</td>
-                            <td>2x R$ 500</td>
-                            <td>3x R$ 346,67</td>
-                            <td>4x R$ 270</td>
-                        </tr>
-                        <tr>
-                            <td><strong>R$ 1.000</strong></td>
-                            <td>R$ 1200</td>
-                            <td>2x R$ 625</td>
-                            <td>3x R$ 433,33</td>
-                            <td>4x R$ 337,50</td>
-                        </tr>
-                        <tr>
-                            <td><strong>R$ 1.500</strong></td>
-                            <td>R$ 1800</td>
-                            <td>2x R$ 937,50</td>
-                            <td>3x R$ 650</td>
-                            <td>4x R$ 506,25</td>
-                        </tr>
-                        <tr>
-                            <td><strong>R$ 2.000</strong></td>
-                            <td>R$ 2400</td>
-                            <td>2x R$ 1250</td>
-                            <td>3x R$ 866,67</td>
-                            <td>4x R$ 675</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="card">
+                <h3>💰 Custo-Benefício Superior</h3>
+                <p>Os prêmios dos sorteios custam menos do que o trabalho operacional para gerenciar grupos de 5.</p>
             </div>
-        </section>
-
-        <section id="filosofia">
-            <h2>Nossa Filosofia</h2>
-            <p>Inspirados no <strong>Grameen Bank</strong>, priorizamos:</p>
-            
-            <div class="philosophy-grid">
-                <div class="philosophy-card">
-                    <i class="fas fa-handshake"></i>
-                    <h3>Confiança > Garantia</h3>
-                    <p>Avaliamos o caráter e o projeto, não o score.</p>
-                </div>
-                
-                <div class="philosophy-card">
-                    <i class="fas fa-users"></i>
-                    <h3>Comunidade > Individual</h3>
-                    <p>Grupos solidários de 5 pessoas fortalecem o compromisso.</p>
-                </div>
-                
-                <div class="philosophy-card">
-                    <i class="fas fa-graduation-cap"></i>
-                    <h3>Educação > Cobrança</h3>
-                    <p>Oferecemos conhecimento para que o crédito seja bem aplicado.</p>
-                </div>
-                
-                <div class="philosophy-card">
-                    <i class="fas fa-rocket"></i>
-                    <h3>Autonomia > Dependência</h3>
-                    <p>Nosso objetivo é você "crescer+" e não precisar mais de nós.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="modelo">
-            <h2>Modelo de Negócio - CaaS</h2>
-            <p><strong>Crédito como Serviço Sustentável</strong></p>
-            
-            <div class="solution-grid">
-                <div class="solution-card">
-                    <i class="fas fa-piggy-bank"></i>
-                    <div class="card-title">Fundo de Impacto</div>
-                    <p>Capital inicial de investidores sociais, fintechs parceiras e ONGs.</p>
-                </div>
-                
-                <div class="solution-card">
-                    <i class="fas fa-mobile-alt"></i>
-                    <div class="card-title">Gestão 100% Digital</div>
-                    <p>Solicitação, análise e pagamento via app/WhatsApp. Pagamentos via Pix.</p>
-                </div>
-                
-                <div class="solution-card">
-                    <i class="fas fa-sync-alt"></i>
-                    <div class="card-title">Auto-sustentável</div>
-                    <p>Os juros (20%-35%) reinvestidos no fundo garantem a rotação e expansão do capital.</p>
-                </div>
-                
-                <div class="solution-card">
-                    <i class="fas fa-gift"></i>
-                    <div class="card-title">Programa de Recompensas</div>
-                    <p>Cashback de 2% para quem paga em dia, incentivando o bom histórico.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="impacto">
-            <h2>Nosso Impacto Social</h2>
-            
-            <div class="impact-cycle">
-                <div class="cycle-step">
-                    <i class="fas fa-money-bill-wave"></i>
-                    <h3>Crédito Acessível</h3>
-                    <p>Emprestamos com juros justos</p>
-                </div>
-                
-                <div class="cycle-step">
-                    <i class="fas fa-tools"></i>
-                    <h3>Negócio Impulsionado</h3>
-                    <p>Compra de matéria-prima, equipamentos</p>
-                </div>
-                
-                <div class="cycle-step">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Geração de Renda</h3>
-                    <p>O negócio gira, gera lucro e capacidade de pagamento</p>
-                </div>
-                
-                <div class="cycle-step">
-                    <i class="fas fa-recycle"></i>
-                    <h3>Comunidade Fortalecida</h3>
-                    <p>O pagamento realimenta o fundo e o conhecimento é compartilhado</p>
-                </div>
-            </div>
-            
-            <p><strong>Resultado:</strong> Autonomia financeira e desenvolvimento local.</p>
-        </section>
-
-        <section class="cta">
-            <h2>Faça Parte Dessa Jornada</h2>
-            <p>Vamos plantar juntos?</p>
-            
-            <div class="two-columns">
-                <div>
-                    <h3>Para Investidores</h3>
-                    <p>Retorno financeiro com impacto social mensurável.</p>
-                </div>
-                
-                <div>
-                    <h3>Para Parceiros</h3>
-                    <p>Seja uma fintech, aceleradora ou prefeitura.</p>
-                </div>
-            </div>
-            
-            <div class="contact-info">
-                <p><strong>Contato:</strong> contato@crescemais.org.br | (11) 9XXXX-XXXX</p>
-            </div>
-            
-            <a href="#contact" class="btn">Entre em Contato</a>
-        </section>
+        </div>
+        
+        <div class="highlight">
+            <h3>🚀 Vantagem Estratégica:</h3>
+            <p>O programa de sorteios cria um ciclo virtuoso: mais clientes → mais sorteios → mais engajamento → mais clientes.</p>
+        </div>
     </div>
-
-    <footer>
-        <div class="container">
-            <p>CRESCE+ - O crédito que não é dívida, é semente.</p>
+    
+    <div class="container">
+        <h2>Como Funcionaria o Programa Sorte Cresce+</h2>
+        
+        <div class="lottery-model">
+            <h3>Modelo de Sorteios Mensais</h3>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nível de Cliente</th>
+                        <th>Como Participar</th>
+                        <th>Prêmios Mensais</th>
+                        <th>Prêmio Anual</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Iniciante</strong> (1-3 empréstimos)</td>
+                        <td>1 cupom a cada R$ 100 pagos em dia</td>
+                        <td>5 kits ferramentas (R$ 200 cada)</td>
+                        <td>1 moto popular</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Intermediário</strong> (4-6 empréstimos)</td>
+                        <td>2 cupons a cada R$ 100 pagos em dia</td>
+                        <td>3 tablets + crédito (R$ 800 cada)</td>
+                        <td>1 carro popular</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Avançado</strong> (7+ empréstimos)</td>
+                        <td>3 cupons a cada R$ 100 pagos em dia + bônus</td>
+                        <td>2 microcréditos sem juros (R$ 2.000)</td>
+                        <td>1 reforma de estabelecimento (R$ 15.000)</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p><strong>Regras transparentes:</strong> Sorteios mensais transmitidos ao vivo pelas redes sociais com auditoria externa.</p>
+        </div>
+        
+        <h3>Mecânica de Pontuação e Vantagens:</h3>
+        <ul>
+            <li>Clientes ganham <strong>cupons</strong> para os sorteios conforme pagam em dia</li>
+            <li>Pagamentos antecipados geram <strong>cupons bônus</strong></li>
+            <li>Indicações de novos clientes validados geram <strong>cupons extras</strong></li>
+            <li>Participação em oficinas de educação financeira concede <strong>vantagens especiais</strong></li>
+        </ul>
+    </div>
+    
+    <div class="container">
+        <h2>Vantagens do Sistema de Sorteios</h2>
+        
+        <div class="benefits">
+            <div class="benefit-item">
+                <div class="benefit-icon">📊</div>
+                <h3>Melhora a Inadimplência</h3>
+                <p>Clientes têm incentivo extra para pagar em dia e não perder os cupons dos sorteios.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">👥</div>
+                <h3>Gera Engajamento Orgânico</h3>
+                <p>Os sorteios mensais criam buzz marketing e incentivam indicações.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">💡</div>
+                <h3>Substitui a Pressão dos Grupos</h3>
+                <p>Mantém o aspecto comunitário sem a responsabilidade solidária forçada.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">📱</div>
+                <h3>Gera Conteúdo Digital</h3>
+                <p>Os sorteios ao vivo geram conteúdo para redes sociais e marketing digital.</p>
+            </div>
+        </div>
+        
+        <div class="highlight">
+            <h3>📈 Projeção de Resultados:</h3>
+            <p>Com investimento de 5% do faturamento em prêmios, é possível reduzir a inadimplência em 30-40% e aumentar a retenção de clientes em 60%.</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h2>Implementação em 3 Fases</h2>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Fase</th>
+                    <th>Duração</th>
+                    <th>Ações</th>
+                    <th>Investimento</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Piloto</strong></td>
+                    <td>3 meses</td>
+                    <td>Sorteios simples com prêmios simbólicos, teste de engajamento</td>
+                    <td>R$ 5.000/mês</td>
+                </tr>
+                <tr>
+                    <td><strong>Expansão</strong></td>
+                    <td>6 meses</td>
+                    <td>Integração com app, sistema de cupons, prêmios maiores</td>
+                    <td>R$ 15.000/mês</td>
+                </tr>
+                <tr>
+                    <td><strong>Consolidação</strong></td>
+                    <td>Contínuo</td>
+                    <td>Sorteios transmitidos ao vivo, prêmios anuais, parcerias</td>
+                    <td>R$ 25.000/mês (5% do faturamento)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="conclusion">
+        <h2>Conclusão Estratégica</h2>
+        <p>O programa <strong>Sorte Cresce+</strong> representa uma evolução do modelo de grupos solidários, mantendo os benefícios de comunidade e responsabilidade compartilhada, mas sem os aspectos negativos da dependência grupal.</p>
+        <p>Esta abordagem é mais adequada à cultura brasileira contemporânea e tem potencial para gerar maior engajamento, redução de inadimplência e atração de novos clientes.</p>
+        <p><strong>Próximo passo recomendado:</strong> Implementar projeto piloto com 100 clientes para validar a aceitação e ajustar a mecânica de sorteios.</p>
+        <a href="#" class="cta-button">Quero implementar o Sorte Cresce+</a>
+    </div>
+</body>
+</html>
             <p>"Plantando crédito, colhendo oportunidades."</p>
             <p>&copy; 2023 CRESCE+. Todos os direitos reservados.</p>
         </div>
